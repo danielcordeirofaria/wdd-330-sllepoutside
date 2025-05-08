@@ -7,6 +7,8 @@ function addProductToCart(product) {
   const cartItems = getLocalStorage("so-cart") || [];
   cartItems.push(product); 
   setLocalStorage("so-cart", cartItems);
+  // Dispatch a custom event to notify cart update
+  window.dispatchEvent(new Event("cartUpdated"));
 }
 
 // add to cart button event handler
